@@ -39,7 +39,7 @@ end
 -- Decompress tarballs and zip files, using the suffix to determine which
 -- method to use.
 function decompress_file(path)
-    if string.find(path, ".zip") then
+    if string.find(path, ".zip") or string.find(path, ".gz") then
         unzip(path)
     elseif string.find(path, ".tar.gz") or string.find(path, ".tgz") then
         decompress_tarball(path)
