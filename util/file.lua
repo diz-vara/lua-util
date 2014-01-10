@@ -45,11 +45,11 @@ end
 -- Decompress tarballs and zip files, using the suffix to determine which
 -- method to use.
 function decompress_file(path)
-    if string.find(path, ".zip") or string.find(path, ".gz") then
-        unzip(path)
-    elseif string.find(path, ".tar.gz") or string.find(path, ".tgz") then
+    if string.find(path, "%.tar%.gz$") or string.find(path, "%.tgz$") then
         decompress_tarball(path)
-    elseif string.find(path, ".gz") or string.find(path, ".gzip") then
+    elseif string.find(path, "%.zip$") or string.find(path, "%.gz$") then
+        unzip(path)
+    elseif string.find(path, "%.gz$") or string.find(path, "%.gzip$") then
         gunzip(path)
     else
         print("Don't know how to decompress file: ", path)
