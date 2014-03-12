@@ -13,12 +13,15 @@ description = {
 
 dependencies = { 'torch >= 7.0'}
 build = {
-    type = "command",
-    build_command = [[
-cmake -E make_directory build;
-cd build;
-cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH="$(LUA_BINDIR)/.." -DCMAKE_INSTALL_PREFIX="$(PREFIX)"; 
-$(MAKE)
-]],
-    install_command = "cd build && $(MAKE) install"
+    type = 'builtin',
+    modules = {
+        ['util.CSVFile'] = 'util/CSVFile.lua',
+        ['util.arg'] = 'util/arg.lua',
+        ['util.file'] = 'util/file.lua',
+        ['util.init'] = 'util/init.lua',
+        ['util.nan'] = 'util/nan.lua',
+        ['util.queue'] = 'util/queue.lua',
+        ['util.warn'] = 'util/warn.lua',
+        ['util.warnself'] = 'util/warnself.lua',
+    }
 }
