@@ -11,7 +11,7 @@ description = {
     homepage = "https://github.com/akfidjeland/lua-util"
 }
 
-dependencies = { 'torch >= 7.0'}
+dependencies = { 'torch >= 7.0', 'strict'}
 build = {
     type = 'builtin',
     modules = {
