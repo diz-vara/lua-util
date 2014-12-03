@@ -19,7 +19,7 @@ end
 -- Check that a data directory exists, and create it if not.
 function check_and_mkdir(dir)
   if not paths.filep(dir) then
-    fs.mkdir(dir)
+    fs.make_dir(dir)
   end
 end
 
@@ -71,10 +71,10 @@ end
 -- Temporarily changes the current working directory to call fn, returning its
 -- result.
 function do_with_cwd(path, fn)
-    local cur_dir = fs.cwd()
-    fs.chdir(path)
+    local cur_dir = fs.current_dir()
+    fs.change_dir(path)
     local res = fn()
-    fs.chdir(cur_dir)
+    fs.change_dir(cur_dir)
     return res
 end
 
