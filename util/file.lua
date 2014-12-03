@@ -1,5 +1,5 @@
 require 'os'
-require 'fs'
+require 'luarocks/fs'
 require 'paths'
 
 -- Boolean predicate to determine if a path points to a valid file or directory.
